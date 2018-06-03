@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorRadicalRedLight</item>
         <item name="colorPrimaryDark">@color/pinkRed</item>
         <item name="colorAccent">@color/sweetPink</item>
+        <item name="android:fontFamily">sans-serif-smallcaps</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
