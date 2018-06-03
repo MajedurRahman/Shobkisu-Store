@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/id_nav_dashboard"
+            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:title="Dashboard" />
+
+    </group>
+
+    <item
+        android:checkable="true"
+        android:title="Product">
+        <menu>
+            <item
+                android:id="@+id/id_nav_mannage_product"
+                android:icon="@drawable/ic_bullet_list"
+                android:title="Product Information" />
+            <item
+                android:id="@+id/id_nav_manage_product"
+                android:icon="@drawable/ic_assignment_turned_in_black_24dp"
+                android:title="Mannage Product" />
+        </menu>
+    </item>
+
+    <item
+        android:checkable="true"
+        android:title="Transaction">
+        <menu>
+            <item
+                android:id="@+id/id_nav_sale_details"
+                android:icon="@drawable/ic_money"
+                android:title="Sale Details"/>
+            <item
+                android:id="@+id/id_nav_cash_details"
+                android:icon="@drawable/ic_developer_board_black_24dp"
+                android:title="Cash Details" />
+        </menu>
+    </item>
+
+
+</menu>
