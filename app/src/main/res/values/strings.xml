@@ -14,4 +14,7 @@
     <string name="cash_details">Cash Details</string>
     <string name="dashboard">Dashboard</string>
     <string name="product">Product</string>
+    <string name="add_new_category">Add New Category</string>
+    <string name="enter_product_name">Enter Product Name</string>
+    <string name="product_price">Product Price</string>
 </resources>

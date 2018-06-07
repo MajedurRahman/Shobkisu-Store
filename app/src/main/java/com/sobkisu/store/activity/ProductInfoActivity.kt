@@ -9,6 +9,22 @@ class ProductInfoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_info)
+        initLayout()
+    }
+
+    private fun initLayout() {
+        setUpApplicationCategory()
+    }
+
+    private fun setUpApplicationCategory() {
+        try {
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun getManageCategoryList() {
 
     }
 }
