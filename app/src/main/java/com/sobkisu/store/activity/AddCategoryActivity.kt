@@ -21,7 +21,6 @@ class AddCategoryActivity : AppCompatActivity() {
 
         initActions()
         initView()
-
     }
 
     private fun initView() {

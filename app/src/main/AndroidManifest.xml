@@ -39,7 +39,15 @@
         <activity
             android:name=".activity.ShowProductActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.ProductDetailsActivity"></activity>
+        <activity
+            android:name=".activity.ProductDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.BuyActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.SellActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -9,7 +9,8 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.sobkisu.store.R
-import com.sobkisu.store.activity.ShowProductActivity
+import com.sobkisu.store.activity.ProductDetailsActivity
+import com.sobkisu.store.db.ProductRepository
 import com.sobkisu.store.model.Product
 
 class ProductDetailsAdapter(context: Context, dataList: ArrayList<Product>) : RecyclerView.Adapter<ProductDetailsAdapter.ProductViewHolder>() {
@@ -52,7 +53,16 @@ class ProductDetailsAdapter(context: Context, dataList: ArrayList<Product>) : Re
 
     private fun onCardClick(holder: ProductViewHolder, position: Int) {
         holder.productCard.setOnClickListener {
-            mainContext!!.startActivity(Intent(mainContext, ShowProductActivity::class.java).putExtra("productId", productList!![position].Id))
+            mainContext!!.startActivity(Intent(mainContext, ProductDetailsActivity::class.java).putExtra("productId", productList!![position].Id))
+        }
+
+
+        holder.productCard.setOnLongClickListener {
+
+            ProductRepository().deleteProductById(productList?.get(position)!!.Id!!)
+            productList!!.removeAt(position)
+            notifyDataSetChanged()
+            it.isClickable
         }
     }
 

@@ -1,0 +1,50 @@
+package com.sobkisu.store.adapter
+
+import android.content.Context
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import com.sobkisu.store.R
+import com.sobkisu.store.model.Product
+import com.sobkisu.store.model.Transection
+import com.sobkisu.store.utils.snackBar
+
+class BuyCellAdapter(val context: Context, val data: ArrayList<Product>, val from: Transection) : RecyclerView.Adapter<BuyCellAdapter.BuyCellViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BuyCellViewHolder {
+        return BuyCellViewHolder(LayoutInflater.from(context).inflate(R.layout.item_buy_sell, parent, false))
+    }
+
+    override fun getItemCount(): Int {
+        return data.size
+    }
+
+    override fun onBindViewHolder(holder: BuyCellViewHolder, position: Int) {
+
+
+        if (from == Transection.Buy) {
+            holder.buyCellButton.text = "Buy"
+        } else if (from == Transection.Sell) {
+            holder.buyCellButton.text = "Sell"
+        }
+
+        holder.nameProduct.text = data[position].productName!!
+
+        onBuyClick(position, holder)
+    }
+
+    private fun onBuyClick(position: Int, holder: BuyCellViewHolder) {
+        holder.buyCellButton.setOnClickListener {
+            context.snackBar("Buy Hoise ".plus(data[position].productName), it)
+
+        }
+    }
+
+    class BuyCellViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+        var nameProduct = itemView!!.findViewById<TextView>(R.id.productName)!!
+        var availProduct = itemView!!.findViewById<TextView>(R.id.availableProduct)!!
+        var buyCellButton = itemView!!.findViewById<Button>(R.id.buyCellButton)!!
+    }
+}

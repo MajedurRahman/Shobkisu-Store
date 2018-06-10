@@ -2,6 +2,8 @@ package com.sobkisu.store.db
 
 import com.sobkisu.store.SobKisuApplication
 import com.sobkisu.store.model.Product
+import com.sobkisu.store.model.active
+import com.sobkisu.store.model.deleted
 import io.realm.Realm
 
 class ProductRepository {
@@ -14,22 +16,33 @@ class ProductRepository {
 
             var max = realm.where(Product::class.java).findAll().size
             item.Id = max.toLong() + 1
+            item.createdAt = System.currentTimeMillis()
+            item.updatedAt = System.currentTimeMillis()
+            item.status = active
             realm.copyToRealm(item)
             realm.commitTransaction()
-            return true;
+            return true
         } catch (e: Exception) {
             e.printStackTrace()
         }
         return false
     }
 
-    fun getAllProduct() = realm.where(Product::class.java).findAll()!!
+    fun getProductById(item: Long) = realm.where(Product::class.java).equalTo("Id", item).and().equalTo("status", active).findFirst()!!
 
-    fun deleteProductById(id: Long) {
-        realm.executeTransaction {
-            it.where(Product::class.java).equalTo("id", id).findFirst()!!.deleteFromRealm()
+    fun getAllProduct() = realm.where(Product::class.java).and().equalTo("status", active).findAll()!!
+
+    fun deleteProductById(id: Long): Boolean {
+        try {
+            realm.executeTransaction {
+                it.where(Product::class.java).equalTo("Id", id).and().equalTo("status", active).findFirst()!!.status = deleted
+            }
+        } catch (e: Exception) {
+
+            e.printStackTrace()
         }
+
+        return true
     }
 
-    fun getProductByCategory(item: String) = realm.where(Product::class.java).equalTo("productCategory", item).findAll()!!
 }

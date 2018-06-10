@@ -29,7 +29,6 @@
             android:textColor="#fff" />
     </LinearLayout>
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -64,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
+                    android:textColor="@color/colorAsphalt"
                     android:text="Product Name"
                     android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle" />
 
@@ -91,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
+                    android:textColor="@color/colorAsphalt"
                     android:text="@string/product_price"
                     android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle" />
 
@@ -120,6 +121,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:text="Category"
+                    android:textColor="@color/colorAsphalt"
                     android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle" />
 
                 <com.jaredrummler.materialspinner.MaterialSpinner

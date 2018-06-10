@@ -24,6 +24,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:maxLength="20"
+                android:textColor="@color/colorAsphalt"
                 android:text="Food Category"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textStyle="bold" />

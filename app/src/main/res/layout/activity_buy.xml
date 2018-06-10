@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    app:layout_anchorGravity="center"
-    tools:context=".activity.ManageProductActivity">
+    tools:context=".activity.BuyActivity">
+
 
     <LinearLayout
-        android:id="@+id/toolbarProductInfo"
+        android:id="@+id/navBar_buyActivity"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
         android:background="?attr/colorPrimary"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,14 +23,14 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Manage Product"
+            android:text="Buy Product"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:textColor="#fff" />
     </LinearLayout>
 
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerViewProductManage"
+        android:id="@+id/recyclerViewBuyNowActivity"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
@@ -40,7 +40,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarProductInfo"
+        app:layout_constraintTop_toBottomOf="@+id/navBar_buyActivity"
         app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_inside_catagory" />
+        tools:listitem="@layout/item_buy_sell" />
+
 </android.support.constraint.ConstraintLayout>

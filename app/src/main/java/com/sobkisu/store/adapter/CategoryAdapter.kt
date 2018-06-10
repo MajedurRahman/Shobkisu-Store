@@ -10,9 +10,7 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.sobkisu.store.R
-import com.sobkisu.store.activity.AddCategoryActivity
-import com.sobkisu.store.activity.AddProductActivity
-import com.sobkisu.store.activity.ShowProductActivity
+import com.sobkisu.store.activity.*
 import com.sobkisu.store.model.Activity
 import com.sobkisu.store.model.Category
 
@@ -61,11 +59,17 @@ open class CategoryAdapter(context: Context, private val listOfCategory: ArrayLi
             try {
                 categoryCard?.setOnClickListener {
                     if (currentActivity == Activity.ManageProduct) {
-                        if (position == 0) {
+                        if (position == 1) {
                             contextMain?.startActivity(Intent(contextMain, AddProductActivity::class.java))
-                        } else if (position == 1) {
-                            contextMain?.startActivity(Intent(contextMain, AddCategoryActivity::class.java))
                         } else if (position == 2) {
+                            contextMain?.startActivity(Intent(contextMain, AddCategoryActivity::class.java))
+                        } else if (position == 0) {
+                            contextMain?.startActivity(Intent(contextMain, ShowProductActivity::class.java))
+                        } else if (position == 3) {
+                            contextMain?.startActivity(Intent(contextMain, BuyActivity::class.java))
+                        } else if (position == 4) {
+                            contextMain?.startActivity(Intent(contextMain, SellActivity::class.java))
+                        } else if (position == 0) {
                             contextMain?.startActivity(Intent(contextMain, ShowProductActivity::class.java))
                         }
                     }
