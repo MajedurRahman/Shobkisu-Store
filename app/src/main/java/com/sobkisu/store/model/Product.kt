@@ -10,5 +10,5 @@ open class Product(
         var productName: String? = "Name Not Found",
         var productPrice: Int? = 0,
         var discountRate: Int? = -1,
-        var createdAt: Long? = 0, var updatedAt: Long? = 0, var status: Int? = 0) : RealmObject()
+        var createdAt: Long? = System.currentTimeMillis(), var updatedAt: Long? = System.currentTimeMillis(), var status: Int = 1) : RealmObject()
 

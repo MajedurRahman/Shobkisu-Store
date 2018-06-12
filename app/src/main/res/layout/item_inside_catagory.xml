@@ -44,7 +44,7 @@
                 android:maxLines="1"
                 android:textColor="@color/colorAsphalt"
                 android:singleLine="true"
-                android:text="Add Product"
+                android:text="Add productItem"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textStyle="bold" />
         </RelativeLayout>

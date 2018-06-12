@@ -9,10 +9,10 @@ import android.widget.Button
 import android.widget.TextView
 import com.sobkisu.store.R
 import com.sobkisu.store.model.Product
-import com.sobkisu.store.model.Transection
-import com.sobkisu.store.utils.snackBar
+import com.sobkisu.store.model.Transaction
+import com.sobkisu.store.utils.BuySellDialog
 
-class BuyCellAdapter(val context: Context, val data: ArrayList<Product>, val from: Transection) : RecyclerView.Adapter<BuyCellAdapter.BuyCellViewHolder>() {
+class BuyCellAdapter(val context: Context, val data: ArrayList<Product>, val from: Transaction) : RecyclerView.Adapter<BuyCellAdapter.BuyCellViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BuyCellViewHolder {
         return BuyCellViewHolder(LayoutInflater.from(context).inflate(R.layout.item_buy_sell, parent, false))
     }
@@ -23,10 +23,9 @@ class BuyCellAdapter(val context: Context, val data: ArrayList<Product>, val fro
 
     override fun onBindViewHolder(holder: BuyCellViewHolder, position: Int) {
 
-
-        if (from == Transection.Buy) {
+        if (from == Transaction.Buy) {
             holder.buyCellButton.text = "Buy"
-        } else if (from == Transection.Sell) {
+        } else if (from == Transaction.Sell) {
             holder.buyCellButton.text = "Sell"
         }
 
@@ -36,10 +35,16 @@ class BuyCellAdapter(val context: Context, val data: ArrayList<Product>, val fro
     }
 
     private fun onBuyClick(position: Int, holder: BuyCellViewHolder) {
-        holder.buyCellButton.setOnClickListener {
-            context.snackBar("Buy Hoise ".plus(data[position].productName), it)
-
+        if (from == Transaction.Sell) {
+            holder.buyCellButton.setOnClickListener {
+                BuySellDialog(context).sellDialog(data[position].Id)
+            }
+        } else if (from == Transaction.Buy) {
+            holder.buyCellButton.setOnClickListener {
+                BuySellDialog(context).buyDialog(data[position].Id)
+            }
         }
+
     }
 
     class BuyCellViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {

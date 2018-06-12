@@ -2,6 +2,7 @@ package com.sobkisu.store.db
 
 import com.sobkisu.store.SobKisuApplication
 import com.sobkisu.store.model.Product
+import com.sobkisu.store.model.ProductTransaction
 import com.sobkisu.store.model.active
 import com.sobkisu.store.model.deleted
 import io.realm.Realm
@@ -13,13 +14,12 @@ class ProductRepository {
     fun saveProduct(item: Product): Boolean {
         try {
             realm.beginTransaction()
-
             var max = realm.where(Product::class.java).findAll().size
             item.Id = max.toLong() + 1
-            item.createdAt = System.currentTimeMillis()
-            item.updatedAt = System.currentTimeMillis()
             item.status = active
             realm.copyToRealm(item)
+            realm.copyToRealm(ProductTransaction(Id = item.Id, productId = item.Id))
+
             realm.commitTransaction()
             return true
         } catch (e: Exception) {

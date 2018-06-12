@@ -70,6 +70,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.id_nav_product_information -> {
                 startActivity(Intent(this, ProductInfoActivity::class.java))
             }
+            R.id.id_nav_sale_details -> {
+                startActivity(Intent(this, BuySellDetailsActivity::class.java))
+            }
 
         }
         drawer_layout.closeDrawer(GravityCompat.START)

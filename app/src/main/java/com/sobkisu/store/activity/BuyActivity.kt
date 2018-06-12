@@ -7,8 +7,9 @@ import com.sobkisu.store.R
 import com.sobkisu.store.adapter.BuyCellAdapter
 import com.sobkisu.store.db.ProductRepository
 import com.sobkisu.store.model.Product
-import com.sobkisu.store.model.Transection
+import com.sobkisu.store.model.Transaction
 import kotlinx.android.synthetic.main.activity_buy.*
+
 
 class BuyActivity : AppCompatActivity() {
 
@@ -23,8 +24,9 @@ class BuyActivity : AppCompatActivity() {
         ProductRepository().getAllProduct().forEach {
             data.add(it!!)
         }
-        recyclerViewBuyNowActivity.adapter = BuyCellAdapter(this, data, Transection.Buy)
-
+        recyclerViewBuyNowActivity.adapter = BuyCellAdapter(this, data, Transaction.Buy)
 
     }
+
+
 }

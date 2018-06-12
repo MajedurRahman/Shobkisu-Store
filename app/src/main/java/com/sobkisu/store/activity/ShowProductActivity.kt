@@ -16,8 +16,6 @@ class ShowProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_product)
         initProductList()
-
-
     }
 
     private fun initProductList() {

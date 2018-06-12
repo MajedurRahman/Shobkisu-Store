@@ -52,7 +52,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="@color/colorAsphalt"
-                android:text="Product Name"
+                android:text="productItem Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold" />
 

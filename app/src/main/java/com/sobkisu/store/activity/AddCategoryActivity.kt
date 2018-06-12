@@ -33,7 +33,7 @@ class AddCategoryActivity : AppCompatActivity() {
         recyclerViewProductCategory.adapter = ProductCategoryAdapterJava(this, data)
     }
 
-    fun initActions() {
+    private fun initActions() {
         try {
             id_add_category.setOnClickListener {
                 var dialog: Dialog = Dialog(this)

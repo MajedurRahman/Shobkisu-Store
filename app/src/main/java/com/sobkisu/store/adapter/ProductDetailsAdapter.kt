@@ -10,6 +10,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.sobkisu.store.R
 import com.sobkisu.store.activity.ProductDetailsActivity
+import com.sobkisu.store.db.BuySellRepository
 import com.sobkisu.store.db.ProductRepository
 import com.sobkisu.store.model.Product
 
@@ -38,9 +39,10 @@ class ProductDetailsAdapter(context: Context, dataList: ArrayList<Product>) : Re
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
 
         try {
+            val transactionData = BuySellRepository().getTransacByProductId(productList!![position].Id!!)
             holder.productName.text = productList!![position].productName.toString()
-            holder.productAvailable.text = "Available: 0 pcs "
-            holder.productSold.text = "Sold : 0 pcs"
+            holder.productAvailable.text = "Available: ${transactionData.productAvailable} pcs "
+            holder.productSold.text = "Sold : ${transactionData.productSold} pcs"
             holder.productPrice.text = "Price : " + productList!![position].productPrice.toString() + " BDT"
 
             onCardClick(holder, position)
@@ -50,6 +52,9 @@ class ProductDetailsAdapter(context: Context, dataList: ArrayList<Product>) : Re
         }
 
     }
+
+    private fun getAvailableProduct(id: Long?) = BuySellRepository().getAvailableProduct(id!!)
+
 
     private fun onCardClick(holder: ProductViewHolder, position: Int) {
         holder.productCard.setOnClickListener {

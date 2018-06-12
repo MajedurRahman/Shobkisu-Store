@@ -34,8 +34,8 @@ class ManageProductActivity : AppCompatActivity() {
         categoryList.add(Category("Show Product", R.drawable.ic_discount))
         categoryList.add(Category("Add Product", R.drawable.ic_add_trolley))
         categoryList.add(Category("Manage Category", R.drawable.ic_category_checklist))
-        categoryList.add(Category("Buy", R.drawable.ic_trolley))
-        categoryList.add(Category("Sell", R.drawable.ic_shopping_cart2))
+        categoryList.add(Category("Buy Product", R.drawable.ic_trolley))
+        categoryList.add(Category("Sell Product", R.drawable.ic_shopping_cart2))
 
         return categoryList
     }

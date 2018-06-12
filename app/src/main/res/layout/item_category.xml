@@ -6,7 +6,7 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         app:cardCornerRadius="3dp"
         app:cardElevation="3dp"
         app:cardUseCompatPadding="true"
@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:maxLength="20"
                 android:textColor="@color/colorAsphalt"
                 android:text="Food Category"
@@ -36,7 +36,7 @@
                 android:layout_below="@id/category_name_id"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="5dp"
-                android:text="Total Product : 100"
+                android:text="Total productItem : 100"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             <ImageButton
