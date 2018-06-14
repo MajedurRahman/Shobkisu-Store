@@ -15,6 +15,7 @@ open class ProductTransaction(@PrimaryKey
 open class BuySellInfo(@PrimaryKey
                        var Id: Long? = null,
                        var productId: Long? = null,
+                       var productName: String? = null,
                        var productPrice: Int? = 0,
                        var productCount: Int? = 0,
                        var buySellType: Int? = -1,

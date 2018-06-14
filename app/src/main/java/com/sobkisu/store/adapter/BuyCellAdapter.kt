@@ -12,7 +12,7 @@ import com.sobkisu.store.model.Product
 import com.sobkisu.store.model.Transaction
 import com.sobkisu.store.utils.BuySellDialog
 
-class BuyCellAdapter(val context: Context, val data: ArrayList<Product>, val from: Transaction) : RecyclerView.Adapter<BuyCellAdapter.BuyCellViewHolder>() {
+class BuyCellAdapter(val context: Context, var data: ArrayList<Product>, val from: Transaction) : RecyclerView.Adapter<BuyCellAdapter.BuyCellViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BuyCellViewHolder {
         return BuyCellViewHolder(LayoutInflater.from(context).inflate(R.layout.item_buy_sell, parent, false))
     }
@@ -34,6 +34,11 @@ class BuyCellAdapter(val context: Context, val data: ArrayList<Product>, val fro
         onBuyClick(position, holder)
     }
 
+    fun filter(searchData: ArrayList<Product>) {
+        this.data = searchData
+        notifyDataSetChanged()
+
+    }
     private fun onBuyClick(position: Int, holder: BuyCellViewHolder) {
         if (from == Transaction.Sell) {
             holder.buyCellButton.setOnClickListener {

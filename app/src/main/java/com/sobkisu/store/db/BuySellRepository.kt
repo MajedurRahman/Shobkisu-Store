@@ -8,7 +8,7 @@ import io.realm.Realm
 
 
 class BuySellRepository {
-    val realm: Realm = Realm.getInstance(SobKisuApplication().getTestConfigaration())
+    val realm: Realm = Realm.getInstance(SobKisuApplication().getTestConfiguration())
 
 
     fun saveSellProduct(item: Product, count: Int): Boolean {
@@ -82,11 +82,13 @@ class BuySellRepository {
 
     fun getAllBuySellDetails(): ArrayList<BuySellInfo> {
         val buySellData = ArrayList<BuySellInfo>()
-        realm.where(Buy::class.java).findAll().forEach {
-            buySellData.add(BuySellInfo(productId = it.productId, buySellType = 1, productPrice = it.sellPrice, productCount = it.numberOfItem, createdAt = it.createdAt))
+        realm.where(Buy::class.java).equalTo("status", active).findAll().forEach {
+            val name = ProductRepository().getProductByIdAll(it.productId!!).productName
+            buySellData.add(BuySellInfo(productId = it.productId, productName = name, buySellType = 1, productPrice = it.sellPrice, productCount = it.numberOfItem, createdAt = it.createdAt))
         }
-        realm.where(Sell::class.java).findAll().forEach {
-            buySellData.add(BuySellInfo(productId = it.productId, buySellType = 0, productPrice = it.sellPrice, productCount = it.numberOfItem, createdAt = it.createdAt))
+        realm.where(Sell::class.java).equalTo("status", active).findAll().forEach {
+            val name = ProductRepository().getProductByIdAll(it.productId!!).productName
+            buySellData.add(BuySellInfo(productId = it.productId, productName = name, buySellType = 0, productPrice = it.sellPrice, productCount = it.numberOfItem, createdAt = it.createdAt))
         }
         buySellData.sortByDescending {
             it.createdAt

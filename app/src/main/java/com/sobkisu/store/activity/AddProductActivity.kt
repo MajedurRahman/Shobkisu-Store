@@ -48,12 +48,12 @@ class AddProductActivity : AppCompatActivity() {
                     categoryProduct.contentEquals("Select Category") ||
                     name.contentEquals("") ||
                     price.contentEquals("")) {
-                snackBar("Product information missing!!", it)
+                snackBar("Product information missing!!")
             } else {
                 val priceInt = price.toIntOrNull()
                 log(priceInt.toString())
                 if (ProductRepository().saveProduct(Product(productCategory = categoryProduct, productPrice = priceInt, productName = name))) {
-                    snackBar("Product Saved Successfully!!", it)
+                    snackBar("Product Saved Successfully!!")
                     finish()
                 }
             }

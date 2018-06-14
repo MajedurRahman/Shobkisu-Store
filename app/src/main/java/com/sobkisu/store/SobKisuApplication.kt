@@ -11,7 +11,7 @@ class SobKisuApplication : Application() {
 
     }
 
-    fun getTestConfigaration(): RealmConfiguration {
+    fun getTestConfiguration(): RealmConfiguration {
         return RealmConfiguration.Builder()
                 .deleteRealmIfMigrationNeeded()
                 .build()

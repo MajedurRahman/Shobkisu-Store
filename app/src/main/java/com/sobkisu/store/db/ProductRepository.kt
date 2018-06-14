@@ -8,7 +8,7 @@ import com.sobkisu.store.model.deleted
 import io.realm.Realm
 
 class ProductRepository {
-    val realm: Realm = Realm.getInstance(SobKisuApplication().getTestConfigaration())
+    val realm: Realm = Realm.getInstance(SobKisuApplication().getTestConfiguration())
 
 
     fun saveProduct(item: Product): Boolean {
@@ -29,6 +29,7 @@ class ProductRepository {
     }
 
     fun getProductById(item: Long) = realm.where(Product::class.java).equalTo("Id", item).and().equalTo("status", active).findFirst()!!
+    fun getProductByIdAll(item: Long) = realm.where(Product::class.java).equalTo("Id", item).findFirst()!!
 
     fun getAllProduct() = realm.where(Product::class.java).and().equalTo("status", active).findAll()!!
 

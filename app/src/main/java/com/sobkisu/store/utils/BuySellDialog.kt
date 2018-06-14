@@ -11,7 +11,6 @@ import com.sobkisu.store.db.ProductRepository
 import com.sobkisu.store.model.Product
 
 class BuySellDialog(val context: Context) {
-
     fun buyDialog(productId: Long?) {
         try {
             var dialog = Dialog(context)
@@ -34,11 +33,10 @@ class BuySellDialog(val context: Context) {
                 if (!price.toString().isEmpty() && !count.toString().isEmpty()) {
                     val product = Product(Id = productItem.Id, productCategory = productItem.productCategory, productName = productItem.productName, productPrice = price.toString().toInt())
                     BuySellRepository().saveBuyProduct(product, count.toString().toInt())
-
-                    context.toast(" Successfully Saved Buy Data ")
+                    context.positiveSnackBar("Successfully Saved Buy Data")
                     dialog.dismiss()
                 } else {
-                    context.snackBar("Missing Information ", dialog.window.decorView)
+                    context.negativeSnackBar("Missing Information ")
                 }
             }
             cancelButton.setOnClickListener {
@@ -48,7 +46,6 @@ class BuySellDialog(val context: Context) {
             e.printStackTrace()
         }
     }
-
     fun sellDialog(productId: Long?) {
         try {
             var dialog = Dialog(context)
@@ -71,13 +68,13 @@ class BuySellDialog(val context: Context) {
                 if (!price.toString().isEmpty() && !count.toString().isEmpty()) {
                     val product = Product(Id = productItem.Id, productCategory = productItem.productCategory, productName = productItem.productName, productPrice = price.toString().toInt())
                     if (BuySellRepository().saveSellProduct(product, count.toString().toInt())) {
-                        context.toast(" Successfully Saved Sell Data ")
+                        context.positiveSnackBar("Successfully Saved Sell Data")
                     } else {
-                        context.toast("Total $count ${productItem.productName} Is Not Available ")
+                        context.negativeSnackBar("Total $count ${productItem.productName} Is Not Available ")
                     }
                     dialog.dismiss()
                 } else {
-                    context.snackBar("Missing Information ", dialog.window.decorView)
+                    context.negativeSnackBar("Missing Information")
                 }
             }
             cancelButton.setOnClickListener {

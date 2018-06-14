@@ -8,7 +8,7 @@ import com.sobkisu.store.model.deleted
 import io.realm.Realm
 
 open class CategoryRepository() {
-    val realm: Realm = Realm.getInstance(SobKisuApplication().getTestConfigaration())
+    val realm: Realm = Realm.getInstance(SobKisuApplication().getTestConfiguration())
 
     // Get All product Category as List
     fun getAllProductCategory() = realm.where(ProductCategory::class.java).equalTo("status", active).findAll()!!
