@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import com.sobkisu.store.R
+import com.sobkisu.store.db.BuySellRepository
 import com.sobkisu.store.model.Product
 import com.sobkisu.store.model.Transaction
 import com.sobkisu.store.utils.BuySellDialog
@@ -24,9 +25,12 @@ class BuyCellAdapter(val context: Context, var data: ArrayList<Product>, val fro
     override fun onBindViewHolder(holder: BuyCellViewHolder, position: Int) {
 
         if (from == Transaction.Buy) {
+            holder.availProduct.text = "Available : " + BuySellRepository().getTransacByProductId(data[position].Id!!).productAvailable!!.toString() + " Pcs"
             holder.buyCellButton.text = "Buy"
         } else if (from == Transaction.Sell) {
             holder.buyCellButton.text = "Sell"
+            holder.availProduct.text = "Available : " + BuySellRepository().getTransacByProductId(data[position].Id!!).productAvailable!!.toString() + " Pcs"
+
         }
 
         holder.nameProduct.text = data[position].productName!!
@@ -39,14 +43,18 @@ class BuyCellAdapter(val context: Context, var data: ArrayList<Product>, val fro
         notifyDataSetChanged()
 
     }
+
     private fun onBuyClick(position: Int, holder: BuyCellViewHolder) {
         if (from == Transaction.Sell) {
+
             holder.buyCellButton.setOnClickListener {
-                BuySellDialog(context).sellDialog(data[position].Id)
+                BuySellDialog(context).sellDialog(data[position].Id, it)
+                notifyDataSetChanged()
             }
         } else if (from == Transaction.Buy) {
             holder.buyCellButton.setOnClickListener {
-                BuySellDialog(context).buyDialog(data[position].Id)
+                BuySellDialog(context).buyDialog(data[position].Id, it)
+                notifyDataSetChanged()
             }
         }
 

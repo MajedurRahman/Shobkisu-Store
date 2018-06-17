@@ -63,7 +63,6 @@ class ProductDetailsAdapter(context: Context, dataList: ArrayList<Product>) : Re
 
 
         holder.productCard.setOnLongClickListener {
-
             ProductRepository().deleteProductById(productList?.get(position)!!.Id!!)
             productList!!.removeAt(position)
             notifyDataSetChanged()

@@ -2,6 +2,7 @@ package com.sobkisu.store.utils
 
 import android.app.Dialog
 import android.content.Context
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -11,7 +12,7 @@ import com.sobkisu.store.db.ProductRepository
 import com.sobkisu.store.model.Product
 
 class BuySellDialog(val context: Context) {
-    fun buyDialog(productId: Long?) {
+    fun buyDialog(productId: Long?, view: View? = null) {
         try {
             var dialog = Dialog(context)
             dialog.setContentView(R.layout.buy_sell_dialog)
@@ -33,7 +34,13 @@ class BuySellDialog(val context: Context) {
                 if (!price.toString().isEmpty() && !count.toString().isEmpty()) {
                     val product = Product(Id = productItem.Id, productCategory = productItem.productCategory, productName = productItem.productName, productPrice = price.toString().toInt())
                     BuySellRepository().saveBuyProduct(product, count.toString().toInt())
-                    context.positiveSnackBar("Successfully Saved Buy Data")
+
+                    if (view == null) {
+                        context.positiveSnackBar("Successfully Saved Buy Data")
+                    } else {
+                        context.positiveSnackBar("Successfully Saved Buy Data", view)
+
+                    }
                     dialog.dismiss()
                 } else {
                     context.negativeSnackBar("Missing Information ")
@@ -46,7 +53,8 @@ class BuySellDialog(val context: Context) {
             e.printStackTrace()
         }
     }
-    fun sellDialog(productId: Long?) {
+
+    fun sellDialog(productId: Long?, view: View? = null) {
         try {
             var dialog = Dialog(context)
             dialog.setContentView(R.layout.buy_sell_dialog)
@@ -68,13 +76,26 @@ class BuySellDialog(val context: Context) {
                 if (!price.toString().isEmpty() && !count.toString().isEmpty()) {
                     val product = Product(Id = productItem.Id, productCategory = productItem.productCategory, productName = productItem.productName, productPrice = price.toString().toInt())
                     if (BuySellRepository().saveSellProduct(product, count.toString().toInt())) {
-                        context.positiveSnackBar("Successfully Saved Sell Data")
+
+                        if (view == null) {
+                            context.positiveSnackBar("Successfully Saved Sell Data")
+                        } else {
+                            context.positiveSnackBar("Successfully Saved Sell Data", view)
+                        }
                     } else {
-                        context.negativeSnackBar("Total $count ${productItem.productName} Is Not Available ")
+                        if (view == null) {
+                            context.negativeSnackBar("Total $count ${productItem.productName} Is Not Available ")
+                        } else {
+                            context.negativeSnackBar("Total $count ${productItem.productName} Is Not Available ", view)
+                        }
                     }
                     dialog.dismiss()
                 } else {
-                    context.negativeSnackBar("Missing Information")
+                    if (view == null) {
+                        context.negativeSnackBar("Missing Information")
+                    } else {
+                        context.negativeSnackBar("Missing Information", view)
+                    }
                 }
             }
             cancelButton.setOnClickListener {

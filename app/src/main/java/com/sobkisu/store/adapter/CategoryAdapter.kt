@@ -14,7 +14,8 @@ import com.sobkisu.store.activity.*
 import com.sobkisu.store.model.Activity
 import com.sobkisu.store.model.Category
 
-open class CategoryAdapter(context: Context, private val listOfCategory: ArrayList<Category>, current: Activity) : RecyclerView.Adapter<CategoryAdapter.CategoryAdapterVegHolder>() {
+
+open class CategoryAdapter(val context: Context, private val listOfCategory: ArrayList<Category>, current: Activity) : RecyclerView.Adapter<CategoryAdapter.CategoryAdapterVegHolder>() {
     private var layoutInflater: LayoutInflater? = null
     private var currentActivity: Activity? = null
     var contextMain: Context? = null
@@ -72,6 +73,13 @@ open class CategoryAdapter(context: Context, private val listOfCategory: ArrayLi
                         } else if (position == 0) {
                             contextMain?.startActivity(Intent(contextMain, ShowProductActivity::class.java))
                         }
+                    } else if (currentActivity == Activity.CashDetails) {
+                        if (position == 1) {
+                            contextMain!!.startActivity(Intent(contextMain, CashInOutActivity::class.java).putExtra("from", Activity.Deposit))
+                        } else if (position == 2) {
+                            contextMain!!.startActivity(Intent(contextMain, CashInOutActivity::class.java).putExtra("from", Activity.CashOut))
+                        }
+
                     }
                 }
             } catch (e: Exception) {

@@ -32,11 +32,10 @@ fun Context.snackBar(message: String) {
 fun Context.positiveSnackBar(message: String, view: View? = null) {
     val activity = this as Activity
 
-    val snackbar: Snackbar
-    if (view == null) {
-        snackbar = Snackbar.make(activity.window.decorView, message, Snackbar.LENGTH_LONG)
+    val snackbar: Snackbar = if (view == null) {
+        Snackbar.make(activity.window.decorView, message, Snackbar.LENGTH_LONG)
     } else {
-        snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+        Snackbar.make(view, message, Snackbar.LENGTH_LONG)
     }
     val sandbarView = snackbar.view
     sandbarView.setBackgroundColor(Color.parseColor("#f64747"))

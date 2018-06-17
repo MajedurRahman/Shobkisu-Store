@@ -43,9 +43,9 @@ class BuySellDetailsAdapter(val context: Context, var list: ArrayList<BuySellInf
     fun getProductName(item: Long) = ProductRepository().getProductByIdAll(item)
 
     class MyviewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
-        var textViewName = itemView!!.findViewById<TextView>(R.id.productName)
-        var textViewPric = itemView!!.findViewById<TextView>(R.id.productPrice)
-        var textViewBuySellCount = itemView!!.findViewById<TextView>(R.id.productCount)
-        var pCard = itemView!!.findViewById<CardView>(R.id.productCard)
+        var textViewName = itemView!!.findViewById<TextView>(R.id.productName)!!
+        var textViewPric = itemView!!.findViewById<TextView>(R.id.productPrice)!!
+        var textViewBuySellCount = itemView!!.findViewById<TextView>(R.id.productCount)!!
+        var pCard = itemView!!.findViewById<CardView>(R.id.productCard)!!
     }
 }

@@ -5,10 +5,12 @@ class Utils {
 
 
 val active = 1
-val deleted = 0;
+val deleted = 0
+val cash = 0
+val deposit = 1
 
 enum class Activity {
-    ManageProduct, ProductInfo
+    ManageProduct, ProductInfo, CashDetails, Deposit, CashOut
 }
 
 enum class Transaction {

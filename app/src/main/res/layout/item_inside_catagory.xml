@@ -10,7 +10,6 @@
         android:layout_height="190dp"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp"
-
         app:cardUseCompatPadding="true"
         app:contentPadding="3dp">
 
@@ -20,7 +19,6 @@
             android:layout_gravity="center"
             android:clickable="true"
             android:id="@+id/id_item_itemCard"
-
             android:foreground="?attr/selectableItemBackground"
             android:orientation="vertical">
 
@@ -39,7 +37,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_margin="3dp"
-                android:fontFamily="sans-serif-smallcaps"
                 android:gravity="center_horizontal|bottom"
                 android:maxLines="1"
                 android:textColor="@color/colorAsphalt"
