@@ -58,6 +58,7 @@ class BuySellDialog(val context: Context) {
         try {
             var dialog = Dialog(context)
             dialog.setContentView(R.layout.buy_sell_dialog)
+            dialog.setCancelable(false)
             dialog.show()
             var productItem = ProductRepository().getProductById(productId!!)
             log("Item " + productItem.productName + " Price " + productItem.productPrice)

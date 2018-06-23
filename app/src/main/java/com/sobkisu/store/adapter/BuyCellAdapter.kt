@@ -24,18 +24,22 @@ class BuyCellAdapter(val context: Context, var data: ArrayList<Product>, val fro
 
     override fun onBindViewHolder(holder: BuyCellViewHolder, position: Int) {
 
-        if (from == Transaction.Buy) {
-            holder.availProduct.text = "Available : " + BuySellRepository().getTransacByProductId(data[position].Id!!).productAvailable!!.toString() + " Pcs"
-            holder.buyCellButton.text = "Buy"
-        } else if (from == Transaction.Sell) {
-            holder.buyCellButton.text = "Sell"
-            holder.availProduct.text = "Available : " + BuySellRepository().getTransacByProductId(data[position].Id!!).productAvailable!!.toString() + " Pcs"
+        try {
+            if (from == Transaction.Buy) {
+                holder.availProduct.text = "Available : " + BuySellRepository().getTransacByProductId(data[position].Id!!).productAvailable!!.toString() + " Pcs"
+                holder.buyCellButton.text = "Buy"
+            } else if (from == Transaction.Sell) {
+                holder.buyCellButton.text = "Sell"
+                holder.availProduct.text = "Available : " + BuySellRepository().getTransacByProductId(data[position].Id!!).productAvailable!!.toString() + " Pcs"
 
+            }
+
+            holder.nameProduct.text = data[position].productName!!
+
+            onBuyClick(position, holder)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-
-        holder.nameProduct.text = data[position].productName!!
-
-        onBuyClick(position, holder)
     }
 
     fun filter(searchData: ArrayList<Product>) {

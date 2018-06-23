@@ -152,6 +152,7 @@
                     android:paddingLeft="30dp"
                     android:paddingRight="30dp"
                     android:text="Cancel"
+                    android:id="@+id/addProductButtonCancel"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                     android:textColor="#fff"
                     android:textStyle="bold" />

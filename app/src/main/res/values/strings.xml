@@ -18,4 +18,7 @@
     <string name="enter_product_name">Enter Product Name</string>
     <string name="product_price">Product Price</string>
     <string name="category">Category</string>
+    <string name="terms_and_policy">Terms and Policy</string>
+    <string name="credits_is_provided_every_item_specifically">credits is provided every item specifically</string>
+    <string name="used_image_credits">Used Image Credits</string>
 </resources>

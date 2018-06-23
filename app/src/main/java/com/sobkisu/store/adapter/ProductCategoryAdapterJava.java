@@ -36,9 +36,13 @@ public class ProductCategoryAdapterJava extends RecyclerView.Adapter<ProductCate
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.nameTV.setText(listData.get(position).getPcName());
-        holder.count.setText("Total Product : " + new CategoryRepository().getAllProductCount(listData.get(position).getPcName()));
-        holder.onDeleteClicked(position);
+        try {
+            holder.nameTV.setText(listData.get(position).getPcName());
+            holder.count.setText("Total Product : " + new CategoryRepository().getAllProductCount(listData.get(position).getPcName()));
+            holder.onDeleteClicked(position);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

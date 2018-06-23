@@ -2,8 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/licenceAndAgreements"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Licence and Agreements"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/termsAndCondition"
+        android:orderInCategory="100"
+        android:title="Terms and Condition"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/credits"
+        android:orderInCategory="100"
+        android:title="Credits/Description"
         app:showAsAction="never" />
 </menu>

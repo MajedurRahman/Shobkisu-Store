@@ -34,7 +34,9 @@ class AddProductActivity : AppCompatActivity() {
             addProductButtonSave.setOnClickListener {
                 saveProduct(categoryProduct, it)
             }
-
+            addProductButtonCancel.setOnClickListener {
+                finish()
+            }
         } catch (e: Exception) {
             e.printStackTrace()
         }

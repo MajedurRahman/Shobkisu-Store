@@ -4,10 +4,15 @@ class Utils {
 }
 
 
-val active = 1
-val deleted = 0
-val cash = 0
-val deposit = 1
+const val active = 1
+const val deleted = 0
+const val cash = 0
+const val deposit = 1
+const val synced = 1
+const val notSynced = 0
+const val status = "status"
+
+
 
 enum class Activity {
     ManageProduct, ProductInfo, CashDetails, Deposit, CashOut

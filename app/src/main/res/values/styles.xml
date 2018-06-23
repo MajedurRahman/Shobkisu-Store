@@ -7,6 +7,8 @@
         <item name="colorPrimaryDark">@color/pinkRed</item>
         <item name="colorAccent">@color/sweetPink</item>
         <item name="android:fontFamily">assistant_extralight</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

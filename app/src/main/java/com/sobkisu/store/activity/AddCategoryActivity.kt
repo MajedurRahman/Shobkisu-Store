@@ -38,6 +38,7 @@ class AddCategoryActivity : AppCompatActivity() {
             id_add_category.setOnClickListener {
                 var dialog: Dialog = Dialog(this)
                 dialog.setContentView(R.layout.add_category_layout)
+                dialog.setCancelable(false)
                 dialog.show()
 
                 dialog.createDialogSave.setOnClickListener {
@@ -52,6 +53,10 @@ class AddCategoryActivity : AppCompatActivity() {
                     } else {
                         nameText.error = "Name is empty!!"
                     }
+                }
+
+                dialog.createDialogCancel.setOnClickListener {
+                    dialog.dismiss()
                 }
             }
 

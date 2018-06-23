@@ -33,11 +33,14 @@ class ProductCategoryAdapter(mainContext: Context, listOfCategory: ArrayList<Pro
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.categoryText!!.text = data!![position].pcName
-        holder.countProduct!!.text = "Total Product : ".plus(CategoryRepository().getAllProductCount(data!![position].pcName!!))
-        if (holder.onDeleteButtonClick(position, data)) {
-            data!!.removeAt(position)
-            notifyDataSetChanged()
+        try {
+            holder.categoryText!!.text = data!![position].pcName
+            holder.countProduct!!.text = "Total Product : ".plus(CategoryRepository().getAllProductCount(data!![position].pcName!!))
+            if (holder.onDeleteButtonClick(position, data)) {
+                data!!.removeAt(position)
+                notifyDataSetChanged()
+            }
+        } catch (e: Exception) {
         }
 
     }

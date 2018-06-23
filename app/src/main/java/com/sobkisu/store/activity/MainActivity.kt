@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.sobkisu.store.R
+import com.sobkisu.store.utils.CreditsAndLicenceDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -51,12 +52,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.licenceAndAgreements -> {
+                CreditsAndLicenceDialog().initLicenceDialog(this)!!.show()
+                true
+            }
+            R.id.credits -> {
+                CreditsAndLicenceDialog().intiCreditsLialog(this)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
